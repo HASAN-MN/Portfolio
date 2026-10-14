@@ -85,18 +85,18 @@ export default function Projects() {
     : projects.filter(p => p.category === activeCategory)
 
   return (
-    <section id="projects" className="relative py-32 px-6" ref={ref}>
+    <section id="projects" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" ref={ref}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             Key <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-[#94a3b8] max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-[#94a3b8] max-w-2xl mx-auto px-2">
             Production-grade AI systems showcasing end-to-end capabilities from research to deployment
           </p>
         </motion.div>
@@ -106,13 +106,13 @@ export default function Projects() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12"
         >
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all ${
                 activeCategory === cat
                   ? 'bg-gradient-to-r from-[#6366f1] to-[#06b6d4] text-white shadow-lg shadow-[#6366f1]/25'
                   : 'bg-[#12121a] text-[#94a3b8] border border-[#1e1e2e] hover:border-[#6366f1]/50'
@@ -124,7 +124,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredProjects.map((project, i) => (
             <motion.div
               key={project.id}
@@ -135,22 +135,22 @@ export default function Projects() {
               className="group"
             >
               <div
-                className="glass-card rounded-2xl p-6 h-full flex flex-col transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+                className="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 h-full flex flex-col transition-all duration-300 hover:-translate-y-2 cursor-pointer"
                 onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
               >
                 {/* Header */}
-                <div className="flex items-start justify-between mb-4">
-                  <span className="text-3xl">{project.icon}</span>
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${project.gradient} text-white`}>
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
+                  <span className="text-2xl sm:text-3xl">{project.icon}</span>
+                  <span className={`px-2 sm:px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r ${project.gradient} text-white`}>
                     {project.category}
                   </span>
                 </div>
 
                 {/* Title & Description */}
-                <h3 className="text-lg font-semibold text-[#f1f5f9] mb-2 group-hover:text-[#818cf8] transition-colors">
+                <h3 className="text-base sm:text-lg font-semibold text-[#f1f5f9] mb-2 group-hover:text-[#818cf8] transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-sm text-[#94a3b8] mb-4 flex-grow">
+                <p className="text-xs sm:text-sm text-[#94a3b8] mb-3 sm:mb-4 flex-grow">
                   {project.description}
                 </p>
 
@@ -160,16 +160,16 @@ export default function Projects() {
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
-                    className="mb-4"
+                    className="mb-3 sm:mb-4"
                   >
-                    <p className="text-sm text-[#64748b] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#64748b] leading-relaxed">
                       {project.longDescription}
                     </p>
                   </motion.div>
                 )}
 
                 {/* Metrics */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                   {project.metrics.map((metric, j) => (
                     <span key={j} className="text-xs px-2 py-1 rounded-md bg-[#0a0a0f] text-[#06b6d4] border border-[#1e1e2e]">
                       {metric}
@@ -178,14 +178,14 @@ export default function Projects() {
                 </div>
 
                 {/* Tech Stack */}
-                <div className="flex flex-wrap gap-1.5 mt-auto">
+                <div className="flex flex-wrap gap-1 sm:gap-1.5 mt-auto">
                   {project.techStack.slice(0, 5).map((tech, j) => (
-                    <span key={j} className="text-xs px-2 py-0.5 rounded bg-[#1e1e2e] text-[#94a3b8]">
+                    <span key={j} className="text-xs px-1.5 sm:px-2 py-0.5 rounded bg-[#1e1e2e] text-[#94a3b8]">
                       {tech}
                     </span>
                   ))}
                   {project.techStack.length > 5 && (
-                    <span className="text-xs px-2 py-0.5 rounded bg-[#1e1e2e] text-[#6366f1]">
+                    <span className="text-xs px-1.5 sm:px-2 py-0.5 rounded bg-[#1e1e2e] text-[#6366f1]">
                       +{project.techStack.length - 5}
                     </span>
                   )}

@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import { Suspense } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -12,12 +12,36 @@ import Footer from './components/Footer'
 import Scene3D from './components/Scene3D'
 
 function Background3D() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Reduce particle count and disable on mobile for performance
+  if (isMobile) {
+    return (
+      <div className="fixed inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#0a0a0f] via-[#0a0a0f] to-[#0a0a0f]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(99,102,241,0.15),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(6,182,212,0.1),transparent_50%)]" />
+      </div>
+    )
+  }
+
   return (
     <div className="fixed inset-0 z-0 pointer-events-none">
       <Canvas
         camera={{ position: [0, 0, 15], fov: 60 }}
         gl={{ alpha: true, antialias: true }}
         style={{ background: 'transparent' }}
+        dpr={[1, 1.5]}
       >
         <Suspense fallback={null}>
           <Scene3D />

@@ -40,29 +40,29 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="relative py-32 px-6" ref={ref}>
+    <section id="contact" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" ref={ref}>
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             Let's <span className="gradient-text">Connect</span>
           </h2>
-          <p className="text-[#94a3b8] max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-[#94a3b8] max-w-2xl mx-auto px-2">
             Interested in collaborating or discussing ML opportunities? I'd love to hear from you.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
           {/* Contact Cards */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-4"
+            className="space-y-3 sm:space-y-4"
           >
             {contactInfo.map((item, i) => (
               <motion.a
@@ -71,14 +71,14 @@ export default function Contact() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
-                className="glass-card rounded-xl p-5 flex items-center gap-4 group hover:-translate-y-1 transition-all duration-300 block"
+                className="glass-card rounded-xl p-4 sm:p-5 flex items-center gap-3 sm:gap-4 group hover:-translate-y-1 transition-all duration-300 block"
                 target={item.href?.startsWith('http') ? '_blank' : undefined}
                 rel={item.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
               >
-                <span className="text-2xl">{item.icon}</span>
-                <div>
+                <span className="text-xl sm:text-2xl flex-shrink-0">{item.icon}</span>
+                <div className="min-w-0 flex-grow">
                   <p className="text-xs text-[#64748b] mb-0.5">{item.label}</p>
-                  <p className="text-sm text-[#f1f5f9] group-hover:text-[#818cf8] transition-colors">
+                  <p className="text-xs sm:text-sm text-[#f1f5f9] group-hover:text-[#818cf8] transition-colors truncate">
                     {item.value}
                   </p>
                 </div>
@@ -91,30 +91,30 @@ export default function Contact() {
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="glass-card rounded-2xl p-8 flex flex-col justify-center"
+            className="glass-card rounded-xl sm:rounded-2xl p-6 sm:p-8 flex flex-col justify-center"
           >
             <div className="text-center">
               <motion.div
                 animate={{ rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-                className="text-5xl mb-6 inline-block"
+                className="text-4xl sm:text-5xl mb-4 sm:mb-6 inline-block"
               >
                 🚀
               </motion.div>
-              <h3 className="text-2xl font-bold text-[#f1f5f9] mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-[#f1f5f9] mb-3">
                 Let's Build Something Great
               </h3>
-              <p className="text-[#94a3b8] mb-8 leading-relaxed">
+              <p className="text-xs sm:text-sm md:text-base text-[#94a3b8] mb-6 sm:mb-8 leading-relaxed px-2">
                 I'm actively looking for AI/ML Engineer roles where I can 
                 contribute to building impactful AI systems — from Agentic RAG 
                 to production LLM pipelines. Let's discuss how I can add value 
                 to your team.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <a
                   href="mailto:hasanworks200@gmail.com"
-                  className="px-6 py-3 rounded-full bg-gradient-to-r from-[#6366f1] to-[#06b6d4] text-white font-medium hover:shadow-xl hover:shadow-[#6366f1]/25 transition-all hover:scale-105 text-sm"
+                  className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-[#6366f1] to-[#06b6d4] text-white font-medium hover:shadow-xl hover:shadow-[#6366f1]/25 transition-all hover:scale-105 text-xs sm:text-sm"
                 >
                   Send Email
                 </a>
@@ -122,7 +122,7 @@ export default function Contact() {
                   href="https://linkedin.com/in/hasan-mustafa-naqvi"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 rounded-full border border-[#1e1e2e] text-[#94a3b8] hover:text-white hover:border-[#6366f1] transition-all hover:scale-105 text-sm"
+                  className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border border-[#1e1e2e] text-[#94a3b8] hover:text-white hover:border-[#6366f1] transition-all hover:scale-105 text-xs sm:text-sm"
                 >
                   LinkedIn Profile
                 </a>

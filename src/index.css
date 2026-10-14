@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -29,8 +30,35 @@ body {
   color: #f1f5f9;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Responsive container */
+.container-responsive {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 1280px;
+  }
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -49,6 +77,7 @@ body {
   color: #ffffff;
 }
 
+/* Animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
@@ -85,10 +114,43 @@ body {
 .glass-card {
   background: rgba(18, 18, 26, 0.8);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(99, 102, 241, 0.1);
 }
 
 .glass-card:hover {
   border-color: rgba(99, 102, 241, 0.3);
   box-shadow: 0 0 30px rgba(99, 102, 241, 0.1);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .glass-card:hover {
+    transform: none;
+  }
+  
+  /* Reduce animation complexity on mobile */
+  .animate-pulse-glow {
+    animation: none;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .glass-card:active {
+    border-color: rgba(99, 102, 241, 0.3);
+    transform: scale(0.98);
+  }
+}
+
+/* Safe area for notched devices */
+@supports (padding: max(0px)) {
+  .safe-area-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  
+  .safe-area-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
 }

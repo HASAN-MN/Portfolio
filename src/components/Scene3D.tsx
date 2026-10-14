@@ -1,10 +1,9 @@
-import { useRef, useMemo } from 'react'
+import { useRef, useMemo, useEffect, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
-function ParticleField() {
+function ParticleField({ count = 1500 }: { count?: number }) {
   const meshRef = useRef<THREE.Points>(null!)
-  const count = 2000
 
   const [positions, colors] = useMemo(() => {
     const positions = new Float32Array(count * 3)
@@ -21,7 +20,7 @@ function ParticleField() {
       colors[i * 3 + 2] = isIndigo ? 0.95 : 0.83
     }
     return [positions, colors]
-  }, [])
+  }, [count])
 
   useFrame((state) => {
     if (meshRef.current) {
@@ -151,12 +150,28 @@ function NeuralNetwork() {
 }
 
 export default function Scene3D() {
+  const [isTablet, setIsTablet] = useState(false)
+
+  useEffect(() => {
+    const checkTablet = () => {
+      setIsTablet(window.innerWidth >= 768 && window.innerWidth < 1024)
+    }
+    
+    checkTablet()
+    window.addEventListener('resize', checkTablet)
+    
+    return () => window.removeEventListener('resize', checkTablet)
+  }, [])
+
+  // Reduce particle count on tablet for better performance
+  const particleCount = isTablet ? 1000 : 1500
+
   return (
     <>
       <ambientLight intensity={0.3} />
       <pointLight position={[10, 10, 10]} intensity={0.5} color="#6366f1" />
       <pointLight position={[-10, -10, -10]} intensity={0.3} color="#06b6d4" />
-      <ParticleField />
+      <ParticleField count={particleCount} />
       <FloatingGeometry />
       <NeuralNetwork />
     </>

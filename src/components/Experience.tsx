@@ -73,26 +73,29 @@ export default function Experience() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="experience" className="relative py-32 px-6" ref={ref}>
+    <section id="experience" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" ref={ref}>
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             Work <span className="gradient-text">Experience</span>
           </h2>
-          <p className="text-[#94a3b8] max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-[#94a3b8] max-w-2xl mx-auto px-2">
             A track record of delivering impactful AI solutions across companies
           </p>
         </motion.div>
 
         {/* Timeline */}
         <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#6366f1] via-[#06b6d4] to-transparent" />
+          {/* Timeline line - hidden on mobile, visible on md+ */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[#6366f1] via-[#06b6d4] to-transparent" />
+          
+          {/* Mobile timeline line */}
+          <div className="md:hidden absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[#6366f1] via-[#06b6d4] to-transparent" />
 
           {experiences.map((exp, i) => (
             <motion.div
@@ -100,40 +103,80 @@ export default function Experience() {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 * i }}
-              className={`relative flex flex-col md:flex-row gap-8 mb-12 ${
-                i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-              }`}
+              className="relative mb-8 md:mb-12"
             >
-              {/* Timeline dot */}
-              <div className="absolute left-8 md:left-1/2 w-4 h-4 -translate-x-1/2 rounded-full bg-[#6366f1] border-4 border-[#0a0a0f] z-10 mt-8" />
-
-              {/* Content */}
-              <div className={`ml-16 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                <div className="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-2 flex-wrap">
-                    <span className="text-xs px-2 py-1 rounded-full bg-[#6366f1]/10 text-[#6366f1] border border-[#6366f1]/20">
-                      {exp.period}
-                    </span>
-                    <span className="text-xs text-[#64748b]">{exp.location}</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-[#f1f5f9] mb-1">{exp.role}</h3>
-                  <p className="text-sm text-[#06b6d4] mb-4">{exp.company}</p>
-                  
-                  <ul className="space-y-2 mb-4">
-                    {exp.highlights.map((highlight, j) => (
-                      <li key={j} className="text-sm text-[#94a3b8] flex items-start gap-2">
-                        <span className="text-[#6366f1] mt-1 text-xs">▹</span>
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex flex-wrap gap-1.5">
-                    {exp.techUsed.map((tech, j) => (
-                      <span key={j} className="text-xs px-2 py-0.5 rounded bg-[#0a0a0f] text-[#94a3b8] border border-[#1e1e2e]">
-                        {tech}
+              {/* Mobile Layout */}
+              <div className="md:hidden flex gap-4">
+                {/* Timeline dot */}
+                <div className="flex-shrink-0 relative">
+                  <div className="w-4 h-4 rounded-full bg-[#6366f1] border-4 border-[#0a0a0f] z-10 mt-6" />
+                </div>
+                
+                {/* Content */}
+                <div className="flex-grow min-w-0">
+                  <div className="glass-card rounded-xl p-4 sm:p-5 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                      <span className="text-xs px-2 py-1 rounded-full bg-[#6366f1]/10 text-[#6366f1] border border-[#6366f1]/20">
+                        {exp.period}
                       </span>
-                    ))}
+                      <span className="text-xs text-[#64748b]">{exp.location}</span>
+                    </div>
+                    <h3 className="text-base sm:text-lg font-semibold text-[#f1f5f9] mb-1">{exp.role}</h3>
+                    <p className="text-xs sm:text-sm text-[#06b6d4] mb-3">{exp.company}</p>
+                    
+                    <ul className="space-y-2 mb-3">
+                      {exp.highlights.map((highlight, j) => (
+                        <li key={j} className="text-xs sm:text-sm text-[#94a3b8] flex items-start gap-2">
+                          <span className="text-[#6366f1] mt-1 text-xs flex-shrink-0">▹</span>
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex flex-wrap gap-1.5">
+                      {exp.techUsed.map((tech, j) => (
+                        <span key={j} className="text-xs px-2 py-0.5 rounded bg-[#0a0a0f] text-[#94a3b8] border border-[#1e1e2e]">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop Layout */}
+              <div className={`hidden md:flex gap-8 ${i % 2 === 0 ? '' : 'flex-row-reverse'}`}>
+                {/* Timeline dot */}
+                <div className="absolute left-1/2 w-4 h-4 -translate-x-1/2 rounded-full bg-[#6366f1] border-4 border-[#0a0a0f] z-10 mt-8" />
+                
+                {/* Content */}
+                <div className={`md:w-1/2 ${i % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
+                  <div className="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                      <span className="text-xs px-2 py-1 rounded-full bg-[#6366f1]/10 text-[#6366f1] border border-[#6366f1]/20">
+                        {exp.period}
+                      </span>
+                      <span className="text-xs text-[#64748b]">{exp.location}</span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-[#f1f5f9] mb-1">{exp.role}</h3>
+                    <p className="text-sm text-[#06b6d4] mb-4">{exp.company}</p>
+                    
+                    <ul className="space-y-2 mb-4">
+                      {exp.highlights.map((highlight, j) => (
+                        <li key={j} className="text-sm text-[#94a3b8] flex items-start gap-2">
+                          <span className="text-[#6366f1] mt-1 text-xs flex-shrink-0">▹</span>
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="flex flex-wrap gap-1.5">
+                      {exp.techUsed.map((tech, j) => (
+                        <span key={j} className="text-xs px-2 py-0.5 rounded bg-[#0a0a0f] text-[#94a3b8] border border-[#1e1e2e]">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

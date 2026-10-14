@@ -90,44 +90,44 @@ export default function Skills() {
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
-    <section id="skills" className="relative py-32 px-6" ref={ref}>
+    <section id="skills" className="relative py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8" ref={ref}>
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             Technical <span className="gradient-text">Arsenal</span>
           </h2>
-          <p className="text-[#94a3b8] max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-[#94a3b8] max-w-2xl mx-auto px-2">
             A comprehensive toolkit built over years of shipping AI systems to production
           </p>
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-16">
           {skillCategories.map((category, catIdx) => (
             <motion.div
               key={catIdx}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * catIdx }}
-              className="glass-card rounded-2xl p-6"
+              className="glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6"
             >
-              <h3 className="text-lg font-semibold text-[#f1f5f9] mb-5 flex items-center gap-2">
-                <span className="text-2xl">{category.icon}</span>
-                {category.title}
+              <h3 className="text-base sm:text-lg font-semibold text-[#f1f5f9] mb-4 sm:mb-5 flex items-center gap-2">
+                <span className="text-xl sm:text-2xl">{category.icon}</span>
+                <span className="text-sm sm:text-base">{category.title}</span>
               </h3>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {category.skills.map((skill, skillIdx) => (
                   <div key={skillIdx}>
-                    <div className="flex justify-between items-center mb-1.5">
-                      <span className="text-sm text-[#94a3b8]">{skill.name}</span>
+                    <div className="flex justify-between items-center mb-1 sm:mb-1.5">
+                      <span className="text-xs sm:text-sm text-[#94a3b8]">{skill.name}</span>
                       <span className="text-xs text-[#6366f1] font-mono">{skill.level}%</span>
                     </div>
-                    <div className="w-full h-2 bg-[#0a0a0f] rounded-full overflow-hidden">
+                    <div className="w-full h-1.5 sm:h-2 bg-[#0a0a0f] rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
@@ -147,19 +147,19 @@ export default function Skills() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="glass-card rounded-2xl p-8"
+          className="glass-card rounded-xl sm:rounded-2xl p-5 sm:p-8"
         >
-          <h3 className="text-lg font-semibold text-[#f1f5f9] mb-6 text-center">
+          <h3 className="text-base sm:text-lg font-semibold text-[#f1f5f9] mb-4 sm:mb-6 text-center">
             🛠️ Core Competencies & Tools
           </h3>
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
             {tools.map((tool, i) => (
               <motion.span
                 key={i}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.4, delay: 0.6 + i * 0.03 }}
-                className="px-4 py-2 rounded-lg bg-[#0a0a0f] border border-[#1e1e2e] text-sm text-[#94a3b8] hover:border-[#6366f1]/50 hover:text-[#f1f5f9] transition-all cursor-default"
+                className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-[#0a0a0f] border border-[#1e1e2e] text-xs sm:text-sm text-[#94a3b8] hover:border-[#6366f1]/50 hover:text-[#f1f5f9] transition-all cursor-default"
                 whileHover={{ y: -2 }}
               >
                 {tool}
