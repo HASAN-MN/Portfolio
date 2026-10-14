@@ -55,6 +55,18 @@ export default function Footer() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
             </motion.a>
+            <motion.a
+              href="https://hasanworks150.medium.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#12121a] border border-[#1e1e2e] flex items-center justify-center text-[#94a3b8] hover:text-[#6366f1] hover:border-[#6366f1] transition-all"
+              whileHover={{ y: -3 }}
+              aria-label="Medium"
+            >
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+              </svg>
+            </motion.a>
           </div>
 
           <p className="text-xs sm:text-sm text-[#64748b] text-center md:text-right">

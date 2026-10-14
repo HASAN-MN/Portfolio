@@ -37,6 +37,12 @@ export default function Contact() {
       value: 'github.com/Hasan-MN',
       href: 'https://github.com/Hasan-MN',
     },
+    {
+      icon: '✍️',
+      label: 'Medium',
+      value: 'hasanworks150.medium.com',
+      href: 'https://hasanworks150.medium.com',
+    },
   ]
 
   return (
