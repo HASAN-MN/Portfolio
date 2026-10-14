@@ -17,73 +17,62 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Intelligent Document Processing Pipeline',
-    description: 'End-to-end NLP pipeline for automated document classification, entity extraction, and summarization using transformer models.',
-    longDescription: 'Built a production NLP system processing 100K+ documents daily. Implemented custom BERT fine-tuning for multi-label classification, NER with spaCy, and abstractive summarization with T5. Deployed on AWS with auto-scaling.',
-    techStack: ['Python', 'PyTorch', 'Transformers', 'FastAPI', 'Docker', 'AWS', 'Redis', 'PostgreSQL'],
-    category: 'NLP',
-    metrics: ['95% Classification Accuracy', '100K+ Docs/Day', '3x Faster Processing'],
-    icon: '📄',
+    title: 'AtlasRAG — Self-Correcting Agentic RAG',
+    description: 'A self-correcting agentic RAG system that enforces graded retrieval, query rewrites, and abstention to eliminate hallucinations.',
+    longDescription: 'Designed AtlasRAG, a self-correcting agentic RAG system that enforces graded retrieval, query rewrites, and abstention to eliminate hallucinations. Achieved 95% abstention accuracy backed by 30 automated tests with CI and fully deterministic routing. The system implements multi-step agent workflows with iterative evaluation loops.',
+    techStack: ['LangChain', 'LangGraph', 'LangSmith', 'OpenAI', 'FAISS', 'FastAPI', 'Python', 'CI/CD'],
+    category: 'Agentic AI',
+    metrics: ['95% Abstention Accuracy', '30 Automated Tests', 'Zero Hallucinations'],
+    icon: '🧠',
     gradient: 'from-indigo-500 to-purple-600'
   },
   {
     id: 2,
-    title: 'Real-time Object Detection System',
-    description: 'High-performance computer vision system for real-time object detection and tracking using YOLOv8 with custom training pipeline.',
-    longDescription: 'Developed a real-time detection system achieving 30+ FPS on edge devices. Custom dataset annotation pipeline, transfer learning from COCO pre-trained weights, model quantization for edge deployment, and streaming inference with TensorRT.',
-    techStack: ['Python', 'PyTorch', 'YOLOv8', 'TensorRT', 'OpenCV', 'ONNX', 'NVIDIA Jetson', 'GStreamer'],
+    title: 'DeepFake Detection — Computer Vision Pipeline',
+    description: 'A deepfake detection system trained on a 15 GB video dataset using PyTorch with EfficientNetB4 and XceptionNet architectures.',
+    longDescription: 'Built a deepfake detection system trained on a 15 GB video dataset using PyTorch (EfficientNetB4, XceptionNet) on NVIDIA T4 GPU. Achieved 97% accuracy via a custom optimized tuned inference pipeline. The system processes video frames, extracts facial features, and classifies content as real or manipulated with high confidence.',
+    techStack: ['PyTorch', 'EfficientNetB4', 'XceptionNet', 'NVIDIA T4', 'OpenCV', 'Python', 'Docker'],
     category: 'Computer Vision',
-    metrics: ['30+ FPS Real-time', '92% mAP', 'Edge Deployed'],
-    icon: '👁️',
+    metrics: ['97% Accuracy', '15 GB Dataset', 'GPU Optimized'],
+    icon: '🔍',
     gradient: 'from-cyan-500 to-blue-600'
   },
   {
     id: 3,
-    title: 'Recommendation Engine at Scale',
-    description: 'Hybrid collaborative-filtering and content-based recommendation system serving millions of users with personalized content.',
-    longDescription: 'Designed and deployed a hybrid recommendation engine combining matrix factorization, deep learning embeddings, and content features. Implemented A/B testing framework, real-time feature store, and model serving with sub-50ms latency.',
-    techStack: ['Python', 'TensorFlow', 'Spark', 'Feature Store', 'Kafka', 'Kubernetes', 'gRPC', 'Redis'],
-    category: 'ML Systems',
-    metrics: ['15% CTR Improvement', '<50ms Latency', '5M+ Users'],
-    icon: '🎯',
+    title: 'Data Analysis Assistant — Conversational AI',
+    description: 'An AI-powered conversational platform that translates natural language into SQL/Excel formulas for non-technical business users.',
+    longDescription: 'Built an AI-powered conversational platform using Python, Streamlit, and LangChain that translates natural language into SQL/Excel formulas. Supports multi-LLM integration (OpenAI/Ollama) with Clean Architecture patterns to deliver data insights for non-technical business users. Features include context-aware query generation and multi-turn conversations.',
+    techStack: ['Python', 'Streamlit', 'LangChain', 'OpenAI', 'Ollama', 'SQL', 'Clean Architecture'],
+    category: 'NLP',
+    metrics: ['Multi-LLM Support', 'Natural Language to SQL', 'Business User Friendly'],
+    icon: '💬',
     gradient: 'from-emerald-500 to-teal-600'
   },
   {
     id: 4,
-    title: 'MLOps & Model Monitoring Platform',
-    description: 'Comprehensive ML platform for model training, deployment, monitoring, and automated retraining with drift detection.',
-    longDescription: 'Built an end-to-end MLOps platform with CI/CD for ML models, experiment tracking with MLflow, data/model drift detection, automated retraining triggers, and comprehensive dashboards for model performance monitoring.',
-    techStack: ['Python', 'MLflow', 'Kubernetes', 'Airflow', 'Prometheus', 'Grafana', 'Terraform', 'GCP'],
-    category: 'MLOps',
-    metrics: ['50+ Models Managed', '99.9% Uptime', 'Auto-Retraining'],
-    icon: '⚙️',
+    title: 'PdfChat AI — Agentic RAG Document Intelligence',
+    description: 'A full Agentic RAG pipeline using LangChain, LLMs, and FastAPI for natural language querying of PDF documents.',
+    longDescription: 'Built a full Agentic RAG pipeline using LangChain, LLMs, and FastAPI — performing document chunking, embedding generation, and semantic retrieval to enable natural language querying of PDF documents. Architecture directly mirrors enterprise document intelligence and multi-step agent workflow requirements. Supports multi-document contexts and citation tracking.',
+    techStack: ['LangChain', 'FastAPI', 'OpenAI', 'FAISS', 'Pinecone', 'Python', 'Docker', 'REST APIs'],
+    category: 'Agentic AI',
+    metrics: ['Multi-Document RAG', 'Semantic Retrieval', 'Enterprise Ready'],
+    icon: '📄',
     gradient: 'from-orange-500 to-red-600'
   },
   {
     id: 5,
-    title: 'LLM-powered Conversational AI',
-    description: 'Production RAG system with fine-tuned LLMs for domain-specific question answering with retrieval augmentation.',
-    longDescription: 'Developed a Retrieval-Augmented Generation system using vector databases, semantic search, and fine-tuned language models. Implemented guardrails, hallucination detection, and multi-turn conversation management for enterprise use.',
-    techStack: ['Python', 'LangChain', 'OpenAI', 'Pinecone', 'FastAPI', 'React', 'Streamlit', 'HuggingFace'],
+    title: 'Audio Transcription & Translation Tool',
+    description: 'A multimodal transcription platform using Whisper AI as a Dockerized micro-service with capacity to handle 30GB simultaneously.',
+    longDescription: 'Built a multimodal transcription platform using Python, Streamlit, and Whisper AI as a Dockerized micro-service with capacity to handle 30GB simultaneously. Features include multi-language transcription, real-time translation, speaker diarization, and export to multiple formats. Deployed as a scalable containerized service.',
+    techStack: ['Python', 'Streamlit', 'Whisper AI', 'Docker', 'FFmpeg', 'FastAPI'],
     category: 'NLP',
-    metrics: ['90% Answer Accuracy', '2s Response Time', '10K+ Queries/Day'],
-    icon: '🤖',
+    metrics: ['30GB Capacity', 'Multi-Language', 'Dockerized'],
+    icon: '🎙️',
     gradient: 'from-violet-500 to-fuchsia-600'
   },
-  {
-    id: 6,
-    title: 'Time Series Forecasting Engine',
-    description: 'Multi-horizon forecasting system for financial metrics using ensemble methods and deep learning architectures.',
-    longDescription: 'Built a forecasting engine combining Prophet, LSTM, Temporal Fusion Transformers, and gradient boosting ensembles. Features automated feature engineering, uncertainty quantification, and adaptive model selection based on data characteristics.',
-    techStack: ['Python', 'PyTorch', 'Prophet', 'XGBoost', 'Airflow', 'Docker', 'PostgreSQL', 'Plotly'],
-    category: 'ML Systems',
-    metrics: ['25% MAPE Reduction', 'Multi-Horizon', 'Auto-Selection'],
-    icon: '📈',
-    gradient: 'from-pink-500 to-rose-600'
-  }
 ]
 
-const categories = ['All', 'NLP', 'Computer Vision', 'ML Systems', 'MLOps']
+const categories = ['All', 'Agentic AI', 'Computer Vision', 'NLP']
 
 export default function Projects() {
   const ref = useRef(null)
@@ -105,10 +94,10 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Featured <span className="gradient-text">Projects</span>
+            Key <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-[#94a3b8] max-w-2xl mx-auto">
-            A selection of ML projects showcasing end-to-end capabilities from research to production
+            Production-grade AI systems showcasing end-to-end capabilities from research to deployment
           </p>
         </motion.div>
 

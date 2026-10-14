@@ -2,67 +2,87 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 
-interface Skill {
-  name: string
-  level: number
-  category: string
-}
-
 const skillCategories = [
   {
-    title: 'ML & Deep Learning',
-    icon: '🧠',
+    title: 'Agentic AI & LLMs',
+    icon: '🤖',
     skills: [
-      { name: 'PyTorch', level: 95 },
-      { name: 'TensorFlow', level: 90 },
-      { name: 'Transformers/HuggingFace', level: 92 },
-      { name: 'Scikit-learn', level: 95 },
-      { name: 'XGBoost/LightGBM', level: 90 },
-      { name: 'LangChain', level: 85 },
+      { name: 'LangChain / LangGraph', level: 95 },
+      { name: 'LangSmith', level: 90 },
+      { name: 'OpenAI / Azure OpenAI', level: 92 },
+      { name: 'Prompt Engineering', level: 95 },
+      { name: 'Multi-Agent Workflows', level: 90 },
+      { name: 'Ollama / Gemini', level: 85 },
     ]
   },
   {
-    title: 'Languages & Frameworks',
+    title: 'RAG & Retrieval',
+    icon: '🔎',
+    skills: [
+      { name: 'Agentic RAG', level: 95 },
+      { name: 'FAISS / Pinecone', level: 90 },
+      { name: 'Semantic Retrieval', level: 92 },
+      { name: 'Document Chunking', level: 90 },
+      { name: 'Embedding Generation', level: 88 },
+      { name: 'Pydantic AI', level: 82 },
+    ]
+  },
+  {
+    title: 'ML / NLP / Deep Learning',
+    icon: '🧠',
+    skills: [
+      { name: 'PyTorch', level: 92 },
+      { name: 'TensorFlow', level: 88 },
+      { name: 'Scikit-learn', level: 90 },
+      { name: 'NER / Text Classification', level: 88 },
+      { name: 'Whisper STT/TTS', level: 85 },
+      { name: 'RASA / DialogFlow', level: 82 },
+    ]
+  },
+  {
+    title: 'Cloud & MLOps',
+    icon: '☁️',
+    skills: [
+      { name: 'AWS (EC2, Lambda, SageMaker)', level: 88 },
+      { name: 'Azure', level: 80 },
+      { name: 'Docker / Kubernetes', level: 85 },
+      { name: 'GitHub Actions / GitLab CI', level: 88 },
+      { name: 'Jenkins', level: 78 },
+      { name: 'FastAPI / Django', level: 90 },
+    ]
+  },
+  {
+    title: 'Data & Storage',
+    icon: '🗄️',
+    skills: [
+      { name: 'SQL / PostgreSQL', level: 88 },
+      { name: 'MongoDB', level: 82 },
+      { name: 'Snowflake', level: 75 },
+      { name: 'Vector Stores', level: 90 },
+      { name: 'Structured Data Extraction', level: 88 },
+      { name: 'n8n Workflows', level: 78 },
+    ]
+  },
+  {
+    title: 'Languages & Tools',
     icon: '💻',
     skills: [
       { name: 'Python', level: 98 },
-      { name: 'SQL', level: 88 },
-      { name: 'React/TypeScript', level: 75 },
-      { name: 'FastAPI', level: 90 },
-      { name: 'Flask', level: 85 },
-      { name: 'Bash/Shell', level: 80 },
-    ]
-  },
-  {
-    title: 'MLOps & Infrastructure',
-    icon: '🚀',
-    skills: [
-      { name: 'Docker/Kubernetes', level: 88 },
-      { name: 'AWS/GCP', level: 85 },
-      { name: 'MLflow', level: 90 },
-      { name: 'Airflow', level: 82 },
-      { name: 'Terraform', level: 75 },
-      { name: 'CI/CD (GitHub Actions)', level: 88 },
-    ]
-  },
-  {
-    title: 'Data & Analytics',
-    icon: '📊',
-    skills: [
-      { name: 'Pandas/NumPy', level: 95 },
-      { name: 'Spark/PySpark', level: 82 },
-      { name: 'PostgreSQL', level: 88 },
-      { name: 'Redis', level: 80 },
-      { name: 'Kafka', level: 75 },
-      { name: 'Elasticsearch', level: 78 },
+      { name: 'Streamlit', level: 90 },
+      { name: 'Git', level: 92 },
+      { name: 'Jira / Notion', level: 85 },
+      { name: 'Agile / Scrum', level: 88 },
+      { name: 'pytest / Validation', level: 85 },
     ]
   }
 ]
 
 const tools = [
-  'Git', 'Linux', 'VS Code', 'Jupyter', 'Weights & Biases',
-  'DVC', 'Pinecone', 'Weaviate', 'TensorRT', 'ONNX',
-  'Grafana', 'Prometheus', 'Terraform', 'ArgoCD', 'Streamlit'
+  'REST APIs', 'JWT Auth', 'RBAC', 'Multi-tenant Architecture',
+  'PDF Parsing', 'Document Comparison', 'Agentic Workflows',
+  'CI/CD', 'Microservices', 'Containerization',
+  'Data Pipelines', 'QA Pipelines', 'Error Analysis',
+  'Fine-tuning', 'Model Optimization', 'GPU Computing'
 ]
 
 export default function Skills() {
@@ -82,12 +102,12 @@ export default function Skills() {
             Technical <span className="gradient-text">Arsenal</span>
           </h2>
           <p className="text-[#94a3b8] max-w-2xl mx-auto">
-            A comprehensive toolkit built over years of shipping ML systems to production
+            A comprehensive toolkit built over years of shipping AI systems to production
           </p>
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {skillCategories.map((category, catIdx) => (
             <motion.div
               key={catIdx}
@@ -130,7 +150,7 @@ export default function Skills() {
           className="glass-card rounded-2xl p-8"
         >
           <h3 className="text-lg font-semibold text-[#f1f5f9] mb-6 text-center">
-            🛠️ Tools & Technologies
+            🛠️ Core Competencies & Tools
           </h3>
           <div className="flex flex-wrap justify-center gap-3">
             {tools.map((tool, i) => (

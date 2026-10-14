@@ -6,6 +6,7 @@ import About from './components/About'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Skills from './components/Skills'
+import Blogs from './components/Blogs'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Scene3D from './components/Scene3D'
@@ -64,6 +65,12 @@ function App() {
         
         <div className="relative h-px">
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#6366f1]/30 to-transparent" />
+        </div>
+        
+        <Blogs />
+        
+        <div className="relative h-px">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#06b6d4]/30 to-transparent" />
         </div>
         
         <Contact />

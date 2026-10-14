@@ -31,6 +31,12 @@ export default function Contact() {
       value: 'linkedin.com/in/hasan-mustafa-naqvi',
       href: 'https://linkedin.com/in/hasan-mustafa-naqvi',
     },
+    {
+      icon: '🐙',
+      label: 'GitHub',
+      value: 'github.com/Hasan-MN',
+      href: 'https://github.com/Hasan-MN',
+    },
   ]
 
   return (
@@ -96,12 +102,13 @@ export default function Contact() {
                 🚀
               </motion.div>
               <h3 className="text-2xl font-bold text-[#f1f5f9] mb-3">
-                Ready for the Next Challenge
+                Let's Build Something Great
               </h3>
               <p className="text-[#94a3b8] mb-8 leading-relaxed">
-                I'm actively looking for Senior ML Engineer roles where I can 
-                contribute to building impactful AI systems. Let's discuss how 
-                I can add value to your team.
+                I'm actively looking for AI/ML Engineer roles where I can 
+                contribute to building impactful AI systems — from Agentic RAG 
+                to production LLM pipelines. Let's discuss how I can add value 
+                to your team.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

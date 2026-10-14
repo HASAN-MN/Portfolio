@@ -22,7 +22,7 @@ export default function Hero() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-5 pointer-events-none opacity-20">
         <div className="w-64 h-64 rounded-full overflow-hidden border-2 border-[#6366f1]/30 animate-pulse-glow">
           <img
-            src="https://image.qwenlm.ai/generated-images/9e595d1a-486e-4214-b67a-deab7405a657/_result.png"
+            src="https://lh3.googleusercontent.com/pw/AP1GczPLN9Rbe4VqTdUP8pkdkG053HG_m3i-3NyCFmhdw9d6hEhKY_hHkarbbZOBc4cxtmAuQciHcNHUhs8EGSQh-E4xcWxZe9KTnWF7UdJrIKLgIBd9-8u4yH-wJ4QkfAoSBQ7rGJcVqbBdfLV_gBKDySeo=w1200-h1600-s-no-gm"
             alt="Hasan Mustafa Naqvi"
             className="w-full h-full object-cover"
           />
@@ -63,7 +63,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-xl md:text-2xl text-[#94a3b8] mb-4 font-light"
         >
-          Senior Machine Learning Engineer
+          AI Engineer • Machine Learning Engineer • Data Scientist
         </motion.p>
 
         <motion.p
@@ -72,8 +72,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-base md:text-lg text-[#64748b] mb-12 max-w-2xl mx-auto"
         >
-          Building intelligent systems that transform data into decisions. 
-          Specializing in NLP, Computer Vision, and Production ML at scale.
+          Results-driven engineer with 3+ years of experience designing, developing, 
+          and deploying scalable AI solutions from prototype to production. 
+          Expertise in LLMs, Agentic AI, RAG pipelines, NLP, and Generative AI.
         </motion.p>
 
         <motion.div
@@ -104,9 +105,9 @@ export default function Hero() {
           className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
-            { value: '5+', label: 'Years Experience' },
-            { value: '20+', label: 'ML Projects' },
-            { value: '10+', label: 'Models Deployed' },
+            { value: '3+', label: 'Years Experience' },
+            { value: '5+', label: 'AI Projects Shipped' },
+            { value: '97%', label: 'Model Accuracy' },
             { value: '4', label: 'Languages' },
           ].map((stat, i) => (
             <div key={i} className="text-center">

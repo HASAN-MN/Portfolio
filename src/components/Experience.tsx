@@ -4,43 +4,67 @@ import { useRef } from 'react'
 
 const experiences = [
   {
-    role: 'Senior Machine Learning Engineer',
-    company: 'Tech Company',
-    period: '2022 - Present',
-    location: 'Berlin, Germany',
+    role: 'AI Engineer',
+    company: 'Tech Xperts Pvt. Ltd',
+    period: '09/2024 – 01/2026',
+    location: 'Pakistan',
     highlights: [
-      'Led development of production NLP pipelines processing 100K+ documents daily',
-      'Architected MLOps platform managing 50+ models with 99.9% uptime',
-      'Reduced model inference latency by 60% through optimization and quantization',
-      'Mentored junior engineers and established ML best practices across the team',
+      'Orchestrated multi-step LLM workflows with iterative evaluation loops, improving retrieval quality and response consistency by 25% via LangSmith',
+      'Reduced hallucinations by 30% building end-to-end document ingestion pipelines (PDF parsing, chunking, embedding generation, semantic retrieval)',
+      'Designed prompt engineering and caching strategies for document comparison and classification tasks, reducing response latency by 20%',
+      'Integrated AI agents with enterprise APIs and JWT OAuth authentication for secure, production-grade AI service delivery',
+      'Deployed scalable AI microservices on AWS (EC2, Lambda) with Docker containerization',
+      'Built and scaled Agentic RAG pipelines from prototype to production in 2 months with end-to-end testing',
     ],
-    techUsed: ['PyTorch', 'Transformers', 'Kubernetes', 'AWS', 'MLflow'],
+    techUsed: ['LangChain', 'LangGraph', 'LangSmith', 'OpenAI', 'AWS', 'Docker', 'FastAPI', 'FAISS'],
   },
   {
-    role: 'Machine Learning Engineer',
-    company: 'AI Startup',
-    period: '2020 - 2022',
-    location: 'Remote',
+    role: 'AI Engineer',
+    company: 'Issm.AI',
+    period: '09/2023 – 08/2024',
+    location: 'Pakistan',
     highlights: [
-      'Built real-time recommendation engine serving 5M+ users with sub-50ms latency',
-      'Developed computer vision models for object detection achieving 92% mAP',
-      'Implemented automated feature engineering pipeline reducing development time by 40%',
-      'Deployed models to edge devices using TensorRT and ONNX optimization',
+      'Deployed production LLM microservices and improved NLP chatbot response accuracy to 92% through iterative fine-tuning of TensorFlow/RASA models trained on 60,000+ conversations',
+      'Processed and annotated 3,500+ audio samples for NLP model training and evaluation',
+      'Built data validation and QA pipelines for structured extraction from document and Excel files, reducing noisy/duplicate data by 15%',
+      'Contributed to computer vision pipeline deployment for face detection in containerized Docker environments',
     ],
-    techUsed: ['TensorFlow', 'YOLO', 'Spark', 'Redis', 'Docker'],
+    techUsed: ['TensorFlow', 'RASA', 'Python', 'Docker', 'NLP', 'Whisper', 'DialogFlow'],
   },
   {
-    role: 'Data Scientist',
-    company: 'Analytics Firm',
-    period: '2019 - 2020',
+    role: 'ML Engineer Trainee',
+    company: 'Softech Worldwide',
+    period: '07/2023 – 09/2023',
+    location: 'Pakistan',
+    highlights: [
+      'Developed ML algorithms and deep neural networks from scratch achieving 95% accuracy',
+      'Built a 16-layer deep neural network with 90% accuracy',
+    ],
+    techUsed: ['Python', 'PyTorch', 'TensorFlow', 'Deep Learning'],
+  },
+  {
+    role: 'AI Developer',
+    company: 'Avrou (Etherea Project)',
+    period: '02/2023 – 06/2023',
     location: 'Remote',
     highlights: [
-      'Developed time series forecasting models improving prediction accuracy by 25%',
-      'Created end-to-end data pipelines for real-time analytics dashboards',
-      'Built A/B testing framework for ML model evaluation and comparison',
-      'Collaborated with product teams to translate business requirements into ML solutions',
+      'Built a multi-agent AI system with 20 autonomous agents using OpenAI LLMs',
+      'Developed agent character scripts, conversation flows, and orchestration workflows',
+      'Conducted extensive LLM prompt engineering research for agent script generation',
+      'Coordinated across 35+ virtual technical meetings',
     ],
-    techUsed: ['Python', 'Scikit-learn', 'PostgreSQL', 'Airflow', 'Plotly'],
+    techUsed: ['OpenAI', 'LangChain', 'Python', 'Multi-Agent Systems', 'Prompt Engineering'],
+  },
+  {
+    role: 'Software Engineer Intern',
+    company: 'Folio3 Pvt. Limited',
+    period: '06/2022 – 08/2022',
+    location: 'Pakistan',
+    highlights: [
+      'Developed a full-stack real estate platform connecting buyers, sellers, and agents',
+      'Implemented secure mail contract authorization and performance optimization',
+    ],
+    techUsed: ['Django', 'Python', 'JavaScript', 'REST APIs', 'PostgreSQL'],
   },
 ]
 
@@ -61,7 +85,7 @@ export default function Experience() {
             Work <span className="gradient-text">Experience</span>
           </h2>
           <p className="text-[#94a3b8] max-w-2xl mx-auto">
-            A track record of delivering impactful ML solutions across industries
+            A track record of delivering impactful AI solutions across companies
           </p>
         </motion.div>
 
@@ -86,7 +110,7 @@ export default function Experience() {
               {/* Content */}
               <div className={`ml-16 md:ml-0 md:w-1/2 ${i % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
                 <div className="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all duration-300">
-                  <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-2 mb-2 flex-wrap">
                     <span className="text-xs px-2 py-1 rounded-full bg-[#6366f1]/10 text-[#6366f1] border border-[#6366f1]/20">
                       {exp.period}
                     </span>
@@ -99,7 +123,7 @@ export default function Experience() {
                     {exp.highlights.map((highlight, j) => (
                       <li key={j} className="text-sm text-[#94a3b8] flex items-start gap-2">
                         <span className="text-[#6366f1] mt-1 text-xs">▹</span>
-                        {highlight}
+                        <span>{highlight}</span>
                       </li>
                     ))}
                   </ul>

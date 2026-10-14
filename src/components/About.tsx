@@ -19,7 +19,7 @@ export default function About() {
             About <span className="gradient-text">Me</span>
           </h2>
           <p className="text-[#94a3b8] max-w-2xl mx-auto">
-            Passionate about building ML systems that solve real-world problems
+            Passionate about building AI systems that solve real-world problems
           </p>
         </motion.div>
 
@@ -33,37 +33,36 @@ export default function About() {
             {/* Avatar */}
             <div className="flex justify-center mb-8">
               <div className="relative">
-                <div className="w-48 h-48 rounded-full overflow-hidden border-2 border-[#6366f1]/50 animate-pulse-glow">
+                <div className="w-52 h-52 rounded-full overflow-hidden border-2 border-[#6366f1]/50 animate-pulse-glow">
                   <img
-                    src="https://image.qwenlm.ai/generated-images/9e595d1a-486e-4214-b67a-deab7405a657/_result.png"
+                    src="https://lh3.googleusercontent.com/pw/AP1GczPLN9Rbe4VqTdUP8pkdkG053HG_m3i-3NyCFmhdw9d6hEhKY_hHkarbbZOBc4cxtmAuQciHcNHUhs8EGSQh-E4xcWxZe9KTnWF7UdJrIKLgIBd9-8u4yH-wJ4QkfAoSBQ7rGJcVqbBdfLV_gBKDySeo=w1200-h1600-s-no-gm"
                     alt="Hasan Mustafa Naqvi"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-2 -right-2 px-3 py-1 rounded-full bg-[#12121a] border border-[#1e1e2e] text-xs text-[#06b6d4]">
-                  🟢 Available
+                  🟢 Open to Work
                 </div>
               </div>
             </div>
             
             <div className="glass-card rounded-2xl p-8">
               <h3 className="text-2xl font-semibold mb-4 text-[#f1f5f9]">
-                ML Engineer based in Berlin 🇩🇪
+                AI Engineer based in Berlin 🇩🇪
               </h3>
-              <p className="text-[#94a3b8] leading-relaxed mb-6">
-                I'm a Senior Machine Learning Engineer with deep expertise in building 
-                production-grade ML systems. My work spans Natural Language Processing, 
-                Computer Vision, and end-to-end ML pipelines that power real business decisions.
+              <p className="text-[#94a3b8] leading-relaxed mb-4">
+                Results-driven AI Engineer, Machine Learning Engineer, and Data Scientist 
+                with 3+ years of experience designing, developing, and deploying scalable 
+                AI solutions from prototype to production.
               </p>
-              <p className="text-[#94a3b8] leading-relaxed mb-6">
-                With a strong foundation in Python, deep learning frameworks, and cloud 
-                infrastructure, I specialize in taking models from research to deployment. 
-                I'm passionate about MLOps, model optimization, and creating scalable 
-                AI solutions.
+              <p className="text-[#94a3b8] leading-relaxed mb-4">
+                Expertise in machine learning, deep learning, NLP, LLMs, Generative AI, 
+                and data analytics, with hands-on experience building agentic AI systems, 
+                RAG pipelines, and intelligent document processing solutions.
               </p>
               <p className="text-[#94a3b8] leading-relaxed">
-                Currently seeking to bring my expertise to innovative teams where I can 
-                contribute to cutting-edge ML challenges and drive meaningful impact.
+                Proven ability to translate business requirements into reliable, 
+                production-ready AI applications. BS Computer Science from FAST NUCES, Karachi.
               </p>
             </div>
           </motion.div>
@@ -82,10 +81,10 @@ export default function About() {
               </h4>
               <div className="grid grid-cols-2 gap-3">
                 {[
-                  { lang: 'English', level: 'Fluent', pct: '95%' },
-                  { lang: 'German', level: 'B1 Professional', pct: '65%' },
+                  { lang: 'English', level: 'Fluent (C1)', pct: '90%' },
+                  { lang: 'German', level: 'B1 Professional', pct: '60%' },
                   { lang: 'Urdu', level: 'Native', pct: '100%' },
-                  { lang: 'Hindi', level: 'Fluent', pct: '90%' },
+                  { lang: 'Hindi', level: 'Fluent', pct: '95%' },
                 ].map((item, i) => (
                   <div key={i} className="bg-[#0a0a0f] rounded-xl p-3 border border-[#1e1e2e]">
                     <div className="flex justify-between items-center mb-1">
@@ -113,13 +112,34 @@ export default function About() {
               <div className="space-y-3">
                 {[
                   { label: 'Location', value: 'Berlin, Germany' },
-                  { label: 'Focus', value: 'NLP, CV, Production ML' },
-                  { label: 'Education', value: 'Computer Science / ML' },
+                  { label: 'Education', value: 'BS CS — FAST NUCES, Karachi' },
+                  { label: 'Focus', value: 'LLMs, Agentic AI, RAG, NLP' },
+                  { label: 'Experience', value: '3+ Years in AI/ML' },
                   { label: 'Status', value: 'Open to Opportunities' },
                 ].map((item, i) => (
                   <div key={i} className="flex justify-between items-center py-2 border-b border-[#1e1e2e] last:border-0">
                     <span className="text-sm text-[#64748b]">{item.label}</span>
                     <span className="text-sm text-[#f1f5f9] font-medium">{item.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Certifications */}
+            <div className="glass-card rounded-2xl p-6">
+              <h4 className="text-lg font-semibold mb-4 text-[#f1f5f9] flex items-center gap-2">
+                🏅 Certifications
+              </h4>
+              <div className="space-y-2">
+                {[
+                  'Python Fundamentals — DataCamp',
+                  'Machine Learning Foundations — Kaggle',
+                  'Introduction to SQL — DataCamp',
+                  'AI for Everyone — DeepLearning.AI',
+                ].map((cert, i) => (
+                  <div key={i} className="flex items-center gap-2 text-sm text-[#94a3b8]">
+                    <span className="text-[#06b6d4]">✓</span>
+                    {cert}
                   </div>
                 ))}
               </div>
